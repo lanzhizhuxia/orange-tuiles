@@ -141,32 +141,6 @@ FROM orange.account_okex_spot_fill  where instrument_id ='OKB-USDT'  order by `t
     spotAccounts=accountClient.get_okex_spot_accounts(now)
     accountClient.save_okex_spot_accounts(spotAccounts)
 
-    # 0.
-    # 预估总资产
-    # 1.
-    # 币币账户
-    # 3.
-    # 交割账户
-    # 5.
-    # 币币杠杆
-    # 6.
-    # 资金账户
-    # 9.
-    # 永续合约
-    # 12.
-    # 期权
-    # 15.
-    # 交割usdt保证金账户
-    # 16.
-    # 永续usdt保证金账户
-    #account_type_list = ['0', '1', '3', '5', '6', '9', '12', '15', '16']
-    account_type_list = ['0']
-    asset = pd.DataFrame(columns=['account_type', 'balance', 'valuation_currency', 'timestamp', 'ts'], index=[0])
-    for account_type in account_type_list:
-        res = accountClient.get_okex_asset_valuation(account_type, "USD")
-        print(res)
-        accountClient.save_okex_asset_valuation(res)
-
 
 if __name__ == '__main__':
     main()
